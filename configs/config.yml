@@ -1,0 +1,8 @@
+http:
+  maxHeaderBytes: 1
+  readTimeout: 60s
+  writeTimeout: 60s
+
+postgres:
+  dbname: "ship_game"
+  ssl: "disable"
