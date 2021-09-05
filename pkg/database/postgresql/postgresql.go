@@ -5,6 +5,7 @@ import (
 	"ship-game-api/pkg/config"
 
 	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 )
 
 func NewPostgresDB(cfg config.PGConfig) (*sqlx.DB, error) {

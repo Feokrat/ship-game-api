@@ -4,6 +4,7 @@ import (
 	"log"
 	"ship-game-api/pkg/config"
 	"ship-game-api/pkg/database/postgresql"
+	"ship-game-api/pkg/repository"
 )
 
 func Run(configPath string) {
@@ -19,5 +20,7 @@ func Run(configPath string) {
 		return
 	}
 
-	log.Println(db)
+	repositories := repository.NewRepositories(db)
+
+	log.Printf("Repos: %v\n", repositories)
 }
