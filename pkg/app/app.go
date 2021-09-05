@@ -3,6 +3,7 @@ package app
 import (
 	"log"
 	"ship-game-api/pkg/config"
+	"ship-game-api/pkg/database/postgresql"
 )
 
 func Run(configPath string) {
@@ -12,5 +13,11 @@ func Run(configPath string) {
 		return
 	}
 
-	log.Println(cfg)
+	db, err := postgresql.NewPostgresDB(cfg.Postgresql)
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+
+	log.Println(db)
 }
